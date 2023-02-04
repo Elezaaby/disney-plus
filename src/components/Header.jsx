@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 
 // -------------- import images and icon ---------------------- 
@@ -12,7 +13,6 @@ import watchlistIcon from '../images/watchlist-icon.svg'
 import originalIcon from '../images/original-icon.svg'
 import movieIcon from '../images/movie-icon.svg'
 import seriesIcon from '../images/series-icon.svg'
-import { Link } from 'react-router-dom'
 // -------------- import images and icon ---------------------- 
 
 function Header() {
@@ -57,6 +57,7 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   padding: 0 36px;
+  overflow-x:hidden ;
 `
 
 const Logo = styled.img`
