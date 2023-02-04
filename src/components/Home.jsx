@@ -2,11 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import backgroundHome from '../images/home-background.png'
 import ImgCarousel from './ImgCarousel'
+import Viewers from './Viewers'
 
 function Home() {
   return (
     <Container>
       <ImgCarousel />
+      <Viewers />
     </Container>
   )
 }
