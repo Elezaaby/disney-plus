@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/disney-plus/static/css/main.3f84bc13.css",
-    "main.js": "/disney-plus/static/js/main.6900d930.js",
+    "main.js": "/disney-plus/static/js/main.8cbdb3ce.js",
     "static/media/national-geographic.mp4": "/disney-plus/static/media/national-geographic.bf1b675d8d0beb6c25bc.mp4",
     "static/media/star-wars.mp4": "/disney-plus/static/media/star-wars.90fa9f5ae993d23505b5.mp4",
     "static/media/pixar.mp4": "/disney-plus/static/media/pixar.971baf2b0d1f60c27f42.mp4",
@@ -31,10 +31,10 @@
     "static/media/original-icon.svg": "/disney-plus/static/media/original-icon.d7752d89e5a5d2b6276338bea45f413b.svg",
     "static/media/home-icon.svg": "/disney-plus/static/media/home-icon.b6a11f9b406f2f13cd82608a276428e5.svg",
     "main.3f84bc13.css.map": "/disney-plus/static/css/main.3f84bc13.css.map",
-    "main.6900d930.js.map": "/disney-plus/static/js/main.6900d930.js.map"
+    "main.8cbdb3ce.js.map": "/disney-plus/static/js/main.8cbdb3ce.js.map"
   },
   "entrypoints": [
     "static/css/main.3f84bc13.css",
-    "static/js/main.6900d930.js"
+    "static/js/main.8cbdb3ce.js"
   ]
 }
