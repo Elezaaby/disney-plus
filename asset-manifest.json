@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/disney-plus/static/css/main.3f84bc13.css",
-    "main.js": "/disney-plus/static/js/main.8cbdb3ce.js",
+    "main.js": "/disney-plus/static/js/main.dc984dff.js",
     "static/media/national-geographic.mp4": "/disney-plus/static/media/national-geographic.bf1b675d8d0beb6c25bc.mp4",
     "static/media/star-wars.mp4": "/disney-plus/static/media/star-wars.90fa9f5ae993d23505b5.mp4",
+    "static/media/login-background.jpg": "/disney-plus/static/media/login-background.05b1a1b3088cbb458939.jpg",
     "static/media/pixar.mp4": "/disney-plus/static/media/pixar.971baf2b0d1f60c27f42.mp4",
     "static/media/disney.mp4": "/disney-plus/static/media/disney.76f717a34732ff5c5752.mp4",
     "static/media/marvel.mp4": "/disney-plus/static/media/marvel.25a822f51e652dec1417.mp4",
@@ -16,8 +17,10 @@
     "static/media/viewers-dreamworks.png": "/disney-plus/static/media/viewers-dreamworks.ff6334a54a029989c3c8.png",
     "static/media/user-photo.png": "/disney-plus/static/media/user-photo.5edf0c2bafee92924250.png",
     "static/media/viewers-starwars.png": "/disney-plus/static/media/viewers-starwars.3fb2e20c0faee83d89db.png",
+    "static/media/cta-logo-two.png": "/disney-plus/static/media/cta-logo-two.e69ae55254630c715843.png",
     "static/media/viewers-disney.png": "/disney-plus/static/media/viewers-disney.eb5bab59e7bf29389dc7.png",
     "static/media/viewers-national.png": "/disney-plus/static/media/viewers-national.c50dd65f4a3d07a590f7.png",
+    "static/media/cta-logo-one.svg": "/disney-plus/static/media/cta-logo-one.1e2a5ccbbcbea0879d03e030e1e295ff.svg",
     "static/media/logo.svg": "/disney-plus/static/media/logo.8205aae82a3c67ca943e8628e2183b0d.svg",
     "static/media/slick.svg": "/disney-plus/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/disney-plus/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -31,10 +34,10 @@
     "static/media/original-icon.svg": "/disney-plus/static/media/original-icon.d7752d89e5a5d2b6276338bea45f413b.svg",
     "static/media/home-icon.svg": "/disney-plus/static/media/home-icon.b6a11f9b406f2f13cd82608a276428e5.svg",
     "main.3f84bc13.css.map": "/disney-plus/static/css/main.3f84bc13.css.map",
-    "main.8cbdb3ce.js.map": "/disney-plus/static/js/main.8cbdb3ce.js.map"
+    "main.dc984dff.js.map": "/disney-plus/static/js/main.dc984dff.js.map"
   },
   "entrypoints": [
     "static/css/main.3f84bc13.css",
-    "static/js/main.8cbdb3ce.js"
+    "static/js/main.dc984dff.js"
   ]
 }
