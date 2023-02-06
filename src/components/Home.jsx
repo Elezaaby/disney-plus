@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import backgroundHome from '../images/home-background.png'
 import ImgCarousel from './ImgCarousel'
@@ -6,6 +6,11 @@ import Movies from './Movies'
 import Viewers from './Viewers'
 
 function Home() {
+
+  useEffect(() => {
+    window.scrollTo({ behavior: 'smooth', top: 0 })
+  }, [])
+
   return (
     <Container>
       <ImgCarousel />

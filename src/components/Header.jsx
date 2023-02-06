@@ -26,7 +26,7 @@ function Header() {
     <Nav>
       <Logo src={logo} />
       <NavMenu>
-        <Link to=''>
+        <Link to='/disney-plus'>
           <img src={homeIcon} alt='home Icon' />
           <span>home</span>
         </Link>
@@ -42,7 +42,7 @@ function Header() {
           <img src={originalIcon} alt='home Icon' />
           <span>originals</span>
         </Link>
-        <Link to=''>
+        <Link to='/disney-plus/movies'>
           <img src={movieIcon} alt='home Icon' />
           <span>movie</span>
         </Link>

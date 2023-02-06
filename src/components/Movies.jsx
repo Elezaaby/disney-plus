@@ -29,7 +29,7 @@ function Movies() {
       <h4>Upcoming movies</h4>
       {upComingMovie ?
         <Content>
-          {upComingMovie.map((movie, key) => key < 4 ?
+          {upComingMovie.map((movie, key) => key < 5 ?
             <Wrap key={key} to='/disney-plus/details' >
               <img src={baseImgeUrl + movie.poster_path} alt="" />
             </Wrap>
@@ -41,7 +41,7 @@ function Movies() {
       <h4>Top Rated</h4>
       {topRatedMovie ?
         <Content>
-          {topRatedMovie.map((movie, key) => key < 4 ?
+          {topRatedMovie.map((movie, key) => key < 5 ?
             <Wrap key={key} to='/disney-plus/details' >
               <img src={baseImgeUrl + movie.poster_path} alt="" />
             </Wrap>
@@ -53,7 +53,7 @@ function Movies() {
       <h4>Latest movies</h4>
       {latestMovie ?
         <Content>
-          {latestMovie.map((movie, key) => key < 4 ?
+          {latestMovie.map((movie, key) => key < 5 ?
             <Wrap key={key} to='/disney-plus/details' >
               <img src={baseImgeUrl + movie.poster_path} alt="" />
             </Wrap>
@@ -75,7 +75,7 @@ const Container = styled.div`
 `
 const Content = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
+  grid-template-columns: repeat(5, minmax(0,1fr));
   grid-gap: 25px;
 
 `

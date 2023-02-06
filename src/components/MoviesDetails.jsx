@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 import playIconBlack from '../images/play-icon-black.png'
@@ -6,6 +6,11 @@ import playIconWhite from '../images/play-icon-white.png'
 import groupIcon from '../images/group-icon.png'
 
 function MoviesDetails() {
+  
+  useEffect(() => {
+    window.scrollTo({ behavior: 'smooth', top: 0 })
+  }, [])
+
   return (
     <Container>
       <Background>
