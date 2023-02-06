@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 // -------------- import images and icon ---------------------- 
@@ -16,6 +16,12 @@ import seriesIcon from '../images/series-icon.svg'
 // -------------- import images and icon ---------------------- 
 
 function Header() {
+  let navigate = useNavigate()
+
+  function handelClickLogin() {
+    navigate('/disney-plus/login')
+  }
+
   return (
     <Nav>
       <Logo src={logo} />
@@ -45,7 +51,7 @@ function Header() {
           <span>series</span>
         </Link>
       </NavMenu>
-      <UserImg src={userImg} />
+      <UserImg onClick={handelClickLogin} src={userImg} />
 
     </Nav>
   )
