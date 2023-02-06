@@ -4,31 +4,32 @@ import axios from 'axios'
 import styled from 'styled-components'
 import backgroundHome from '../images/home-background.png'
 
-function MoviesList() {
-  const [listMovie, setListMovie] = useState([])
+function OriginalList() {
+
+  const [originalList, setOriginalList] = useState([])
   const [seeMore, setSeeMore] = React.useState(1);
   const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
-
   const handelSeeMoreClick = () => setSeeMore(seeMore + 1);
 
-  async function gitMovieList(page) {
-    let moviesResponse = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US&page=${page}`)
-    setListMovie([...listMovie, ...moviesResponse.data.results])
+  async function gitSeriesList(page) {
+    let originalResponse = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=c636ed7787cc302d96bf88ccf334e0d8&sort_by=popularity.desc&with_companies=3475%7C5391%7C109755%7C6125&page=${page}`)
+    setOriginalList([...originalList, ...originalResponse.data.results])
   }
 
   useEffect(() => {
-    gitMovieList(seeMore)
+    gitSeriesList(seeMore)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seeMore])
 
+
   return (
     <Container>
-      {listMovie ?
+      {originalList ?
         <Content>
-          {listMovie.map((movie, key) =>
+          {originalList.map((original, key) =>
             <Wrap key={key}>
               <Link to='/disney-plus/details'>
-                <img src={baseImgeUrl + movie.poster_path} alt="" />
+                <img src={baseImgeUrl + original.poster_path} alt="" />
               </Link>
             </Wrap>
           )}
@@ -107,4 +108,5 @@ const ViewMore = styled.button`
 `;
 
 
-export default MoviesList
+
+export default OriginalList
