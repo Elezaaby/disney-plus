@@ -25,37 +25,37 @@ function Viewers() {
   return (
     <Container>
       <Wrap>
-        <Link to=''>
+        <Link to='/disney-plus/disney'>
           <img src={disney} alt="" />
           <video src={videoDisney} autoPlay loop playsInline={true}></video>
         </Link>
       </Wrap>
       <Wrap>
-        <Link to=''>
+        <Link to='/disney-plus/pixar'>
           <img src={pixar} alt="" />
           <video src={videoPixar} autoPlay loop playsInline={true}></video>
         </Link>
       </Wrap>
       <Wrap>
-        <Link to=''>
+        <Link to='/disney-plus/marvel'>
           <img src={marvel} alt="" />
           <video src={videoMarvel} autoPlay loop playsInline={true}></video>
         </Link>
       </Wrap>
       <Wrap>
-        <Link to=''>
+        <Link to='/disney-plus/star-wars'>
           <img src={starwars} alt="" />
           <video src={videoStar} autoPlay loop playsInline={true}></video>
         </Link>
       </Wrap>
       <Wrap>
-        <Link to=''>
+        <Link to='/disney-plus/dream-works'>
           <img src={dreamworks} alt="" />
           <video src={videoDreamworks} autoPlay loop playsInline={true}></video>
         </Link>
       </Wrap>
       <Wrap>
-        <Link to=''>
+        <Link to='/disney-plus/national-geographic'>
           <img src={national} alt="" />
           <video src={videoNational} autoPlay loop playsInline={true}></video>
         </Link>
