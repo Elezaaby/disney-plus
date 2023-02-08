@@ -1,23 +1,45 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components'
+import axios from 'axios'
+import Recommended from './Recommended';
 
 import playIconBlack from '../images/play-icon-black.png'
 import playIconWhite from '../images/play-icon-white.png'
 import groupIcon from '../images/group-icon.png'
 
+
 function MoviesDetails() {
-  
+  const [movieDetails, setMovieDetails] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
+  let { id } = useParams()
+  let { type } = useParams()
+
+  async function getMovieDetails(id, el) {
+    let { data } = await axios.get(`https://api.themoviedb.org/3/${el}/${id}?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US`)
+    setMovieDetails(data)
+    setGenres(data.genres)
+  }
+
   useEffect(() => {
     window.scrollTo({ behavior: 'smooth', top: 0 })
+    if (type === 'series') {
+      getMovieDetails(id, 'tv')
+    }
+    if (type === 'movies') {
+      getMovieDetails(id, 'movie')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <Container>
       <Background>
-        <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/4F39B7E16726ECF419DD7C49E011DD95099AA20A962B0B10AA1881A70661CE45/scale?width=1440&aspectRatio=1.78&format=jpeg" alt="" />
+        <img src={baseImgeUrl + movieDetails.backdrop_path} alt="" />
       </Background>
       <ImageLogo>
-        <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/D7AEE1F05D10FC37C873176AAA26F777FC1B71E7A6563F36C6B1B497CAB1CEC2/scale?width=1440&aspectRatio=1.78" alt="" />
+        <img src={baseImgeUrl + movieDetails.poster_path} alt="" />
       </ImageLogo>
       <Controls>
         <PlayButton>
@@ -36,11 +58,15 @@ function MoviesDetails() {
         </GroupWatchButton>
       </Controls>
       <SubTitle>
-        2022.7m Family, fantasy, Kids, animation
+        {movieDetails.release_date ?
+          <div>{movieDetails.release_date}</div>
+          :
+          <div>{movieDetails.first_air_date} - {movieDetails.last_air_date}</div>}
+        <div>{genres.map((e, key) => <span key={key}>{e.name},</span>)}</div>
       </SubTitle>
-      <Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. A placeat tempore illum animi ex distinctio illo? Nostrum sint esse maxime quam ullam illo veniam voluptatum voluptates molestias. Pariatur, quo ad.
-      </Description>
+      <Description>{movieDetails.overview}</Description>
+
+      <Recommended id={id} type={type} />
     </Container>
   )
 }
@@ -133,13 +159,25 @@ const SubTitle = styled.div`
   color: rgb(249,249,249);
   min-height: 20px;
   margin-top: 26px;
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+  
+  span{
+    cursor: pointer;
+    margin-left: 5px;
+
+    &:hover{
+      color: rgb(212, 207, 207);
+    }
+  }
 `;
 const Description = styled.div`
   line-height: 1.4;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 16px;
   color: rgb(249,249,249);
-  max-width: 7;
+  max-width: 80%;
 `;
 
 export default MoviesDetails

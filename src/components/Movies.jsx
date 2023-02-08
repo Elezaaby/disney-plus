@@ -30,7 +30,7 @@ function Movies() {
       {upComingMovie ?
         <Content>
           {upComingMovie.map((movie, key) => key < 5 ?
-            <Wrap key={key} to='/disney-plus/details' >
+            <Wrap key={key} to={`/disney-plus/${'movies'}/details/${movie.id}`} >
               <img src={baseImgeUrl + movie.poster_path} alt="" />
             </Wrap>
             : ''
@@ -42,7 +42,7 @@ function Movies() {
       {topRatedMovie ?
         <Content>
           {topRatedMovie.map((movie, key) => key < 5 ?
-            <Wrap key={key} to='/disney-plus/details' >
+            <Wrap key={key} to={`/disney-plus/${'movies'}/details/${movie.id}`} >
               <img src={baseImgeUrl + movie.poster_path} alt="" />
             </Wrap>
             : ''
@@ -54,7 +54,7 @@ function Movies() {
       {latestMovie ?
         <Content>
           {latestMovie.map((movie, key) => key < 5 ?
-            <Wrap key={key} to='/disney-plus/details' >
+            <Wrap key={key} to={`/disney-plus/${'movies'}/details/${movie.id}`} >
               <img src={baseImgeUrl + movie.poster_path} alt="" />
             </Wrap>
             : ''

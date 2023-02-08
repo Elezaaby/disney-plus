@@ -28,7 +28,7 @@ function OriginalList() {
         <Content>
           {originalList.map((original, key) =>
             <Wrap key={key}>
-              <Link to='/disney-plus/details'>
+              <Link to={`/disney-plus/${'movies'}/details/${original.id}`}>
                 <img src={baseImgeUrl + original.poster_path} alt="" />
               </Link>
             </Wrap>

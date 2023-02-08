@@ -27,15 +27,16 @@ function SeriesList() {
         <Content>
           {listSeries.map((serie, key) =>
             <Wrap key={key}>
-              <Link to='/disney-plus/details'>
+              <Link to={`/disney-plus/${'series'}/details/${serie.id}`}>
                 <img src={baseImgeUrl + serie.poster_path} alt="" />
               </Link>
             </Wrap>
           )}
         </Content>
-        : ''}
+        : ''
+      }
       <ViewMore onClick={handelSeeMoreClick}>VIEW MORE</ViewMore>
-    </Container>
+    </Container >
   )
 }
 

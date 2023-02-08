@@ -27,7 +27,7 @@ function MoviesList() {
         <Content>
           {listMovie.map((movie, key) =>
             <Wrap key={key}>
-              <Link to='/disney-plus/details'>
+              <Link to={`/disney-plus/${'movies'}/details/${movie.id}`}>
                 <img src={baseImgeUrl + movie.poster_path} alt="" />
               </Link>
             </Wrap>

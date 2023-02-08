@@ -22,6 +22,12 @@ function Header() {
     navigate('/disney-plus/login')
   }
 
+
+  window.addEventListener('scroll', function () {
+    const nav = this.document.querySelector('nav')
+    nav.classList.toggle('active', window.scrollY > 30)
+  })
+
   return (
     <Nav>
       <Logo src={logo} />
@@ -58,12 +64,23 @@ function Header() {
 }
 
 const Nav = styled.nav`
-  height: 70px;
+  height: 60px;
   background-color: #090b13;
   display: flex;
   align-items: center;
   padding: 0 36px;
   overflow-x:hidden ;
+
+  &.active {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #090b13;
+    box-shadow: -1px 11px 24px -11px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
 `
 
 const Logo = styled.img`
@@ -120,8 +137,8 @@ const NavMenu = styled.div`
 `
 
 const UserImg = styled.img`
-  height: 48px;
-  width: 48px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   cursor: pointer;
 `

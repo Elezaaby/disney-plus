@@ -17,7 +17,11 @@ function App() {
       <Routes>
         <Route path='/disney-plus' element={<Home />} />
         <Route path='/disney-plus/login' element={<Login />} />
-        <Route path='/disney-plus/details' element={<MoviesDetails />} />
+        <Route path='/disney-plus' element={<MoviesDetails />}>
+          <Route path=':type/details' element={<MoviesDetails />} >
+            <Route path=':id' element={<MoviesDetails />} />
+          </Route>
+        </Route>
         <Route path='/disney-plus/movies' element={<MoviesList />} />
         <Route path='/disney-plus/series' element={<SeriesList />} />
         <Route path='/disney-plus/original' element={<OriginalList />} />
