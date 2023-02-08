@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios'
 import Recommended from './Recommended';
+import VideoTrailer from './VideoTrailer';
 
 import playIconBlack from '../images/play-icon-black.png'
 import playIconWhite from '../images/play-icon-white.png'
@@ -12,6 +13,8 @@ import groupIcon from '../images/group-icon.png'
 function MoviesDetails() {
   const [movieDetails, setMovieDetails] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [playBtn, setPlayBtn] = useState(false)
+
   const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
   let { id } = useParams()
   let { type } = useParams()
@@ -42,14 +45,17 @@ function MoviesDetails() {
         <img src={baseImgeUrl + movieDetails.poster_path} alt="" />
       </ImageLogo>
       <Controls>
-        <PlayButton>
+        <PlayButton onClick={() => setPlayBtn(true)}>
           <img src={playIconBlack} alt="" />
           <span>Play</span>
         </PlayButton>
-        <TrailerButton>
+        <TrailerButton onClick={() => setPlayBtn(true)}>
           <img src={playIconWhite} alt="" />
           <span>Trailer</span>
         </TrailerButton>
+        {/*------------------------- Video Trailer Componantes -------------------------*/}
+        {playBtn ? <VideoTrailer setPlayBtn={setPlayBtn} id={id} type={type} /> : ''}
+        {/*------------------------- Video Trailer Componantes -------------------------*/}
         <AddButton>
           <span>+</span>
         </AddButton>
@@ -65,8 +71,10 @@ function MoviesDetails() {
         <div>{genres.map((e, key) => <span key={key}>{e.name},</span>)}</div>
       </SubTitle>
       <Description>{movieDetails.overview}</Description>
-
+      {/*------------------------- Recommended Componantes -------------------------*/}
       <Recommended id={id} type={type} />
+      {/*------------------------- Recommended Componantes -------------------------*/}
+
     </Container>
   )
 }

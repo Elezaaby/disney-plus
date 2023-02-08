@@ -28,9 +28,11 @@ function Recommended({ id, type }) {
       <h4>Recommended for you</h4>
       <Container>
         {recommended ?
-          recommended.map((item, key) => key < 14 ?
+          recommended.map((item, key) => key < 14 && item.poster_path ?
             <Wrap key={key} >
-              <Link to={`/disney-plus/${type}/details/${item.id}`}>
+              {/*--------------------------- An error in Navigation is being fixed --------------------------- */}
+              <Link target={true} to={`/disney-plus/${type}/details/${item.id}`}>
+                {/*--------------------------- An error in Navigation is being fixed --------------------------- */}
                 <img src={baseImgeUrl + item.poster_path} alt="" />
               </Link>
             </Wrap>
