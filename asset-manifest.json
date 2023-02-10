@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/disney-plus/static/css/main.3f84bc13.css",
-    "main.js": "/disney-plus/static/js/main.85e4f996.js",
+    "main.js": "/disney-plus/static/js/main.1ca4e225.js",
     "static/media/national-geographic.mp4": "/disney-plus/static/media/national-geographic.bf1b675d8d0beb6c25bc.mp4",
     "static/media/star-wars.mp4": "/disney-plus/static/media/star-wars.90fa9f5ae993d23505b5.mp4",
     "static/media/login-background.jpg": "/disney-plus/static/media/login-background.05b1a1b3088cbb458939.jpg",
@@ -16,6 +16,7 @@
     "static/media/slider-badging.jpg": "/disney-plus/static/media/slider-badging.b33dd5b6b1aab9795814.jpg",
     "static/media/viewers-dreamworks.png": "/disney-plus/static/media/viewers-dreamworks.ff6334a54a029989c3c8.png",
     "static/media/user-photo.png": "/disney-plus/static/media/user-photo.5edf0c2bafee92924250.png",
+    "static/media/navbar-background.png": "/disney-plus/static/media/navbar-background.5203446f04e97f01cf56.png",
     "static/media/viewers-starwars.png": "/disney-plus/static/media/viewers-starwars.3fb2e20c0faee83d89db.png",
     "static/media/cta-logo-two.png": "/disney-plus/static/media/cta-logo-two.e69ae55254630c715843.png",
     "static/media/viewers-disney.png": "/disney-plus/static/media/viewers-disney.eb5bab59e7bf29389dc7.png",
@@ -34,10 +35,10 @@
     "static/media/original-icon.svg": "/disney-plus/static/media/original-icon.d7752d89e5a5d2b6276338bea45f413b.svg",
     "static/media/home-icon.svg": "/disney-plus/static/media/home-icon.b6a11f9b406f2f13cd82608a276428e5.svg",
     "main.3f84bc13.css.map": "/disney-plus/static/css/main.3f84bc13.css.map",
-    "main.85e4f996.js.map": "/disney-plus/static/js/main.85e4f996.js.map"
+    "main.1ca4e225.js.map": "/disney-plus/static/js/main.1ca4e225.js.map"
   },
   "entrypoints": [
     "static/css/main.3f84bc13.css",
-    "static/js/main.85e4f996.js"
+    "static/js/main.1ca4e225.js"
   ]
 }
