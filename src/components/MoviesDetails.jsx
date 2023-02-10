@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios'
 import Recommended from './Recommended';
@@ -68,7 +68,7 @@ function MoviesDetails() {
           <div>{movieDetails.release_date}</div>
           :
           <div>{movieDetails.first_air_date} - {movieDetails.last_air_date}</div>}
-        <div>{genres.map((e, key) => <span key={key}>{e.name},</span>)}</div>
+        <div>{genres.map((e, key) => <Link to={`/disney-plus/movies/${e.name}`} key={key}>{e.name},</Link>)}</div>
       </SubTitle>
       <Description>{movieDetails.overview}</Description>
       {/*------------------------- Recommended Componantes -------------------------*/}
@@ -171,9 +171,11 @@ const SubTitle = styled.div`
   align-items: center;
   grid-gap: 10px;
   
-  span{
+  a{
     cursor: pointer;
     margin-left: 5px;
+    text-decoration: none;
+    color: #fff;
 
     &:hover{
       color: rgb(212, 207, 207);

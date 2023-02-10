@@ -9,6 +9,7 @@ import SeriesList from './components/SeriesList';
 import OriginalList from './components/OriginalList';
 import ViewersMoviesList from './components/ViewersMoviesList';
 import StarwarsMovies from './components/StarwarsMovies';
+import GenresSearch from './components/GenresSearch';
 
 function App() {
   return (
@@ -29,6 +30,12 @@ function App() {
           <Route path=':vi' />
         </Route>
         <Route path='/disney-plus/star-wars' element={<StarwarsMovies />} />
+
+        <Route path='/disney-plus' element={<GenresSearch />}>
+          <Route path=':type' element={<GenresSearch />}>
+            <Route path=':genre' element={<GenresSearch />} />
+          </Route>
+        </Route>
       </Routes>
     </div>
   );

@@ -2,6 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
+import backgroundNavbar from '../images/navbar-background.png'
 
 
 // -------------- import images and icon ---------------------- 
@@ -70,11 +71,22 @@ const Nav = styled.nav`
   align-items: center;
   padding: 0 36px;
   overflow-x:hidden ;
+  position: relative;
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: url(${backgroundNavbar});
+  }
 
   &.active {
     position: fixed;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
     width: 100%;
     background-color: #090b13;
     box-shadow: -1px 11px 24px -11px rgba(0, 0, 0, 0.2);
@@ -85,6 +97,7 @@ const Nav = styled.nav`
 
 const Logo = styled.img`
   width: 80px;
+  z-index: 10;
 `
 
 const NavMenu = styled.div`
@@ -103,6 +116,7 @@ const NavMenu = styled.div`
 
     img{
       height: 20px;
+      z-index: 10;
     }
 
     span{
@@ -141,6 +155,7 @@ const UserImg = styled.img`
   width: 45px;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 10;
 `
 
 export default Header
