@@ -1,37 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import styled from 'styled-components'
 import backgroundHome from '../images/home-background.png'
-import { useParams } from 'react-router-dom';
 
 function GenresSearch() {
   let [moviesGenres, setMoviesGenres] = useState([])
   const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
-  const [seeMore, setSeeMore] = React.useState(1);
+  const [seeMore, setSeeMore] = useState(1);
   let { type } = useParams()
   let { genre } = useParams()
-  console.log(type, genre)
+
   const handelSeeMoreClick = () => setSeeMore(seeMore + 1);
 
 
-  async function getMoviesGenres(type, genre) {
-    let { data } = await axios.get(`https://api.themoviedb.org/3/search/${type}?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US&query=${genre}&include_adult=false`);
-    setMoviesGenres(data.results)
+  async function getMoviesGenres(type, genre, page) {
+    let { data } = await axios.get(`https://api.themoviedb.org/3/search/${type}?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US&query=${genre}&include_adult=false&page=${page}`);
+    setMoviesGenres([...moviesGenres, ...data.results])
   }
 
   useEffect(() => {
     if (type === 'series') {
-      getMoviesGenres('tv', genre)
+      getMoviesGenres('tv', genre, seeMore)
     }
     if (type === 'movies') {
-      getMoviesGenres('movie', genre)
+      getMoviesGenres('movie', genre, seeMore)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-
-  console.log(moviesGenres)
+  }, [seeMore])
 
 
   return (

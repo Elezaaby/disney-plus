@@ -7,7 +7,7 @@ import backgroundHome from '../images/home-background.png'
 function ViewersMoviesList() {
 
   const [listMovieVie, setListMovieVie] = useState([])
-  const [seeMore, setSeeMore] = React.useState(1);
+  const [seeMore, setSeeMore] = useState(1);
   const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
   let { vi } = useParams()
 

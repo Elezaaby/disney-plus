@@ -8,33 +8,40 @@ import VideoTrailer from './VideoTrailer';
 import playIconBlack from '../images/play-icon-black.png'
 import playIconWhite from '../images/play-icon-white.png'
 import groupIcon from '../images/group-icon.png'
+import TVEpisodes from './TVEpisodes';
 
 
 function MoviesDetails() {
+  const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
   const [movieDetails, setMovieDetails] = useState([]);
+  const [tvSeasons, setTvSeasons] = useState([]);
   const [genres, setGenres] = useState([]);
   const [playBtn, setPlayBtn] = useState(false)
+  const [seasonBtn, setSeasonBtn] = useState(false)
+  const [seasonNum, setSeasonNum] = useState(1)
 
-  const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
+
   let { id } = useParams()
   let { type } = useParams()
 
-  async function getMovieDetails(id, el) {
+  async function getDetailsData(id, el) {
     let { data } = await axios.get(`https://api.themoviedb.org/3/${el}/${id}?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US`)
     setMovieDetails(data)
+    setTvSeasons(data.seasons)
     setGenres(data.genres)
   }
+
 
   useEffect(() => {
     window.scrollTo({ behavior: 'smooth', top: 0 })
     if (type === 'series') {
-      getMovieDetails(id, 'tv')
+      getDetailsData(id, 'tv')
     }
     if (type === 'movies') {
-      getMovieDetails(id, 'movie')
+      getDetailsData(id, 'movie')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [id])
 
   return (
     <Container>
@@ -71,11 +78,33 @@ function MoviesDetails() {
         <div>{genres.map((e, key) => <Link to={`/disney-plus/movies/${e.name}`} key={key}>{e.name},</Link>)}</div>
       </SubTitle>
       <Description>{movieDetails.overview}</Description>
+      {tvSeasons ?
+        <>
+          <h4>Seasons</h4>
+          <ContainerSeasons>
+            {tvSeasons.map((season, key) => season.season_number !== 0 ?
+              <Wrap
+                onClick={() => {
+                  setSeasonBtn(true)
+                  setSeasonNum(season.season_number)
+                }}
+                key={key}
+              >
+                <img src={baseImgeUrl + season.poster_path} alt="" />
+              </Wrap>
+              : ''
+            )}
+          </ContainerSeasons>
+
+          {seasonBtn ? <TVEpisodes id={id} seasonNum={seasonNum} setSeasonBtn={setSeasonBtn} /> : ''}
+        </>
+        : ''
+      }
       {/*------------------------- Recommended Componantes -------------------------*/}
-      <Recommended id={id} type={type} />
+      <Recommended id={id} type={type} setSeasonBtn={setSeasonBtn} />
       {/*------------------------- Recommended Componantes -------------------------*/}
 
-    </Container>
+    </Container >
   )
 }
 
@@ -189,5 +218,45 @@ const Description = styled.div`
   color: rgb(249,249,249);
   max-width: 80%;
 `;
+
+const ContainerSeasons = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0,1fr));
+  grid-gap: 10px;
+  margin-top: 30px;
+  position: relative;
+
+  .activeSeason{
+    transform: scale(1.1);
+    box-shadow: rgb(0 0 0 /80%) 0px 40px 58px -16px,
+    rgb(0 0 0 /72%) 0px 30px  22px -10px;
+    border-color: rgba(249,249,249,0.8);
+  }
+`;
+
+const Wrap = styled.div`
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 3px solid rgba(249,249,249,0.1);
+  box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px,
+  rgb(0 0 0 /73%) 0px 16px  10px -10px;
+  transition: 250ms all cubic-bezier(0.25,0.46,0.45,0.94) 0s;
+  z-index: 10;
+
+  img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover{
+    transform: scale(1.05);
+    box-shadow: rgb(0 0 0 /80%) 0px 40px 58px -16px,
+    rgb(0 0 0 /72%) 0px 30px  22px -10px;
+    border-color: rgba(249,249,249,0.8);
+  }
+`;
+
 
 export default MoviesDetails

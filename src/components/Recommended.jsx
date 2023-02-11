@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-function Recommended({ id, type }) {
+function Recommended({ id, type, setSeasonBtn }) {
   const [recommended, setRecommended] = useState([])
   const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
 
@@ -20,7 +20,7 @@ function Recommended({ id, type }) {
       getRecommendedData(id, 'movie')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [id])
 
 
   return (
@@ -29,10 +29,8 @@ function Recommended({ id, type }) {
       <Container>
         {recommended ?
           recommended.map((item, key) => key < 14 && item.poster_path ?
-            <Wrap key={key} >
-              {/*--------------------------- An error in Navigation is being fixed --------------------------- */}
-              <Link target={true} to={`/disney-plus/${type}/details/${item.id}`}>
-                {/*--------------------------- An error in Navigation is being fixed --------------------------- */}
+            <Wrap onClick={() => setSeasonBtn(false)} key={key} >
+              <Link to={`/disney-plus/${type}/details/${item.id}`}>
                 <img src={baseImgeUrl + item.poster_path} alt="" />
               </Link>
             </Wrap>
@@ -51,6 +49,8 @@ const Container = styled.div`
   grid-gap: 10px;
   margin-top: 30px;
   padding: 0  0 50px 0;
+  position: relative;
+  z-index: 10;
 
   h4{
     margin-top: 50px;

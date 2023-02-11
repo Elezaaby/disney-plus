@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+
+// ---------------------------------------- Components ---------------------------------------- //
 import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -10,6 +12,7 @@ import OriginalList from './components/OriginalList';
 import ViewersMoviesList from './components/ViewersMoviesList';
 import StarwarsMovies from './components/StarwarsMovies';
 import GenresSearch from './components/GenresSearch';
+// ---------------------------------------- Components ---------------------------------------- //
 
 function App() {
   return (
@@ -18,14 +21,17 @@ function App() {
       <Routes>
         <Route path='/disney-plus' element={<Home />} />
         <Route path='/disney-plus/login' element={<Login />} />
+
         <Route path='/disney-plus' element={<MoviesDetails />}>
           <Route path=':type/details' element={<MoviesDetails />} >
             <Route path=':id' element={<MoviesDetails />} />
           </Route>
         </Route>
+
         <Route path='/disney-plus/movies' element={<MoviesList />} />
         <Route path='/disney-plus/series' element={<SeriesList />} />
         <Route path='/disney-plus/original' element={<OriginalList />} />
+
         <Route path='/disney-plus' element={<ViewersMoviesList />}>
           <Route path=':vi' />
         </Route>
