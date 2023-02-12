@@ -12,6 +12,7 @@ import OriginalList from './components/OriginalList';
 import ViewersMoviesList from './components/ViewersMoviesList';
 import StarwarsMovies from './components/StarwarsMovies';
 import GenresSearch from './components/GenresSearch';
+import CrewMovies from './components/CrewMovies';
 // ---------------------------------------- Components ---------------------------------------- //
 
 function App() {
@@ -41,6 +42,10 @@ function App() {
           <Route path=':type' element={<GenresSearch />}>
             <Route path=':genre' element={<GenresSearch />} />
           </Route>
+        </Route>
+
+        <Route path='/disney-plus/actors/details/' element={<CrewMovies />}>
+          <Route path=':actorsId' element={<CrewMovies />} />
         </Route>
       </Routes>
     </div>

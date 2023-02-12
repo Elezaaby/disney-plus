@@ -15,6 +15,7 @@ function MoviesDetails() {
   const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
   const [movieDetails, setMovieDetails] = useState([]);
   const [tvSeasons, setTvSeasons] = useState([]);
+  const [crewData, setCrewData] = useState([]);
   const [genres, setGenres] = useState([]);
   const [playBtn, setPlayBtn] = useState(false)
   const [seasonBtn, setSeasonBtn] = useState(false)
@@ -26,9 +27,11 @@ function MoviesDetails() {
 
   async function getDetailsData(id, el) {
     let { data } = await axios.get(`https://api.themoviedb.org/3/${el}/${id}?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US`)
+    let castData = await axios.get(`https://api.themoviedb.org/3/${el}/${id}/credits?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US`)
     setMovieDetails(data)
     setTvSeasons(data.seasons)
     setGenres(data.genres)
+    setCrewData(castData.data.cast)
   }
 
 
@@ -100,6 +103,23 @@ function MoviesDetails() {
         </>
         : ''
       }
+      {/*------------------------- cast Componantes -------------------------*/}
+      <CrewContainer>
+        <h4>Crew</h4>
+        {crewData ?
+          <Crew>
+            {crewData.map((crew, key) => key < 12 ?
+              <Wrap key={key}>
+                <Link to={`/disney-plus/actors/details/${crew.id}`}>
+                  <img src={baseImgeUrl + crew.profile_path} alt="" />
+                </Link>
+              </Wrap>
+              : ''
+            )}
+          </Crew>
+          : ''}
+      </CrewContainer>
+      {/*------------------------- cast Componantes -------------------------*/}
       {/*------------------------- Recommended Componantes -------------------------*/}
       <Recommended id={id} type={type} setSeasonBtn={setSeasonBtn} />
       {/*------------------------- Recommended Componantes -------------------------*/}
@@ -258,5 +278,15 @@ const Wrap = styled.div`
   }
 `;
 
+const CrewContainer = styled.div`
+`
+const Crew = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0,1fr)) ;
+  grid-gap: 10px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 10;
+`
 
 export default MoviesDetails
