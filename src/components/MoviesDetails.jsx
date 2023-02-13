@@ -33,6 +33,7 @@ function MoviesDetails() {
     setGenres(data.genres)
     setCrewData(castData.data.cast)
   }
+  console.log(movieDetails)
 
 
   useEffect(() => {
@@ -105,10 +106,10 @@ function MoviesDetails() {
       }
       {/*------------------------- cast Componantes -------------------------*/}
       <CrewContainer>
-        <h4>Crew</h4>
+        <h4>Cast</h4>
         {crewData ?
           <Crew>
-            {crewData.map((crew, key) => key < 12 ?
+            {crewData.map((crew, key) => key < 12 && crew.profile_path ?
               <Wrap key={key}>
                 <Link to={`/disney-plus/actors/details/${crew.id}`}>
                   <img src={baseImgeUrl + crew.profile_path} alt="" />

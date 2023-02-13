@@ -6,7 +6,7 @@ import backgroundHome from '../images/home-background.png'
 
 function MoviesList() {
   const [listMovie, setListMovie] = useState([])
-  const [seeMore, setSeeMore] = React.useState(1);
+  const [seeMore, setSeeMore] = useState(1);
   const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
 
   const handelSeeMoreClick = () => setSeeMore(seeMore + 1);
