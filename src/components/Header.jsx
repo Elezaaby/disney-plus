@@ -37,10 +37,6 @@ function Header() {
           <img src={homeIcon} alt='home Icon' />
           <span>home</span>
         </Link>
-        <Link to='/disney-plus/search'>
-          <img src={searchIcon} alt='search Icon' />
-          <span>search</span>
-        </Link>
         <Link to='/disney-plus/watchlist'>
           <img src={watchlistIcon} alt='watchlist Icon' />
           <span>watchlist</span>
@@ -56,6 +52,10 @@ function Header() {
         <Link to='/disney-plus/series'>
           <img src={seriesIcon} alt='series Icon' />
           <span>series</span>
+        </Link>
+        <Link to='/disney-plus/search'>
+          <img src={searchIcon} alt='search Icon' />
+          <span>search</span>
         </Link>
       </NavMenu>
       <UserImg onClick={handelClickLogin} src={userImg} />

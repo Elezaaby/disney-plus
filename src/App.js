@@ -13,6 +13,7 @@ import ViewersMoviesList from './components/ViewersMoviesList';
 import StarwarsMovies from './components/StarwarsMovies';
 import GenresSearch from './components/GenresSearch';
 import CrewMovies from './components/CrewMovies';
+import Search from './components/Search';
 // ---------------------------------------- Components ---------------------------------------- //
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path=':vi' />
         </Route>
         <Route path='/disney-plus/star-wars' element={<StarwarsMovies />} />
+        <Route path='/disney-plus/search' element={<Search />} />
 
         <Route path='/disney-plus' element={<GenresSearch />}>
           <Route path=':type' element={<GenresSearch />}>

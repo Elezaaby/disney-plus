@@ -9,8 +9,6 @@ function CrewMovies() {
   const [tvData, setTvData] = useState([])
   const [details, setDetails] = useState([])
   const [biography, setBiography] = useState()
-  const [seeMore, setSeeMore] = useState(10);
-  const handelSeeMoreClick = () => setSeeMore(seeMore + 10);
 
   const baseImgeUrl = 'https://image.tmdb.org/t/p/original/'
   let { actorsId } = useParams()
@@ -30,7 +28,7 @@ function CrewMovies() {
   useEffect(() => {
     getCrewMovies(actorsId)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [seeMore])
+  }, [])
 
   return (
     <Container>
@@ -46,7 +44,7 @@ function CrewMovies() {
       </ProfileContainer>
       {moviesData ?
         <Content>
-          {moviesData.map((movie, key) => movie.poster_path && key < seeMore ?
+          {moviesData.map((movie, key) => movie.poster_path ?
             <Wrap key={key}>
               <Link to={`/disney-plus/${'movies'}/details/${movie.id}`}>
                 <img src={baseImgeUrl + movie.poster_path} alt="" />
@@ -54,7 +52,7 @@ function CrewMovies() {
             </Wrap>
             : ''
           )}
-          {tvData.map((tv, key) => tv.poster_path && key < seeMore ?
+          {tvData.map((tv, key) => tv.poster_path ?
             <Wrap key={key}>
               <Link to={`/disney-plus/${'series'}/details/${tv.id}`}>
                 <img src={baseImgeUrl + tv.poster_path} alt="" />
@@ -64,7 +62,6 @@ function CrewMovies() {
           )}
         </Content>
         : ''}
-      <ViewMore onClick={handelSeeMoreClick}>VIEW MORE</ViewMore>
 
     </Container>
   )
@@ -73,7 +70,6 @@ const Container = styled.div`
   min-height: calc(100vh - 70px);
   padding: 30px 50px 10px;
   overflow-x: hidden;
-  text-align :center ;
   position: relative;
   
   &::before{
@@ -135,23 +131,6 @@ const Profile = styled(Wrap)`
   width: 20%;
 `;
 
-const ViewMore = styled.button`
-  color: #fff;
-  cursor: pointer;
-  width: 20%;
-  text-align: center;
-  background-color: transparent;
-  margin: 50px 0;
-  padding: 10px 0;
-  border-radius: 7px;
-  border: 3px solid rgba(249,249,249,0.1);
-  transition: 250ms all cubic-bezier(0.25,0.46,0.45,0.94) 0s;
-
-  &:hover{
-    transform: scale(1.01);
-    border-color: rgba(249,249,249,0.8);
-  }
-`;
 
 
 export default CrewMovies
